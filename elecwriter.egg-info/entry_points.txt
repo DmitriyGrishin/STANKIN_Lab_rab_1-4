@@ -1,0 +1,3 @@
+[console_scripts]
+elecwriter = elecwriter:cli
+

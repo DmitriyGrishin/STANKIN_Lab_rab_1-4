@@ -1,0 +1,8 @@
+elecwriter.py
+setup.py
+elecwriter.egg-info/PKG-INFO
+elecwriter.egg-info/SOURCES.txt
+elecwriter.egg-info/dependency_links.txt
+elecwriter.egg-info/entry_points.txt
+elecwriter.egg-info/requires.txt
+elecwriter.egg-info/top_level.txt
