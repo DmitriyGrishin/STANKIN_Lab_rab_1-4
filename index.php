@@ -2,6 +2,7 @@
 require_once "php/connect.php";
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +34,7 @@ require_once "php/connect.php";
                         <div class="form__right">
                             <div><input type="text" name="surname"></input></div>
                             <div><input type="text" name="name"></input></div>
-                            <div><input type="text" name="group"></input></div>
+                            <div><input type="text" name="grp"></input></div>
                         </div>
                     </div>
                 <div class="pushbtn">
