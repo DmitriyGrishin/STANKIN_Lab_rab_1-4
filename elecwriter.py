@@ -122,7 +122,7 @@ def cli():
         mail = input()
         print('Пароль')
         passord = input()
-        print('Введите путь до приватного ключа')
+        print('Введите путь до публичного ключа')
         path_private = input()
         print('Введите путь до файла письма')
         path_file = input()
@@ -142,7 +142,7 @@ def cli():
         fetch_email(mail, passord, path)
         cli()
     elif key == 6:
-        print('Введите путь до полученного приватного ключа')
+        print('Введите путь до полученного публичного ключа')
         path_privat = input()
         print('Введите путь до полученного файла письма')
         path_file = input()
