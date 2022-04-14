@@ -1,6 +1,6 @@
 <?php
 
-$servername = "labs";
+$servername = "lab";
 $username = "root";
 $password = "";
 $db = "lab_rab";
