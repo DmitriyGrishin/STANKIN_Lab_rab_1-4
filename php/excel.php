@@ -1,23 +1,27 @@
 <?php
 
 require_once "connect.php";
+require_once "phpexcel/classes/PHPExcel.php";
 
-header('Content-Encoding: UTF-8');
-header('Content-type: text/csv; charset=UTF-8');
-header("Content-disposition: attachment; filename=export.csv");
-header("Pragma: public");
-header("Expires: 0");
-echo "\xEF\xBB\xBF";
+ $objPHPExcel = new PHPExcel();
 
-$sql = "SELECT * FROM form";
-$result = $conn->query($sql);
+ $query = "SELECT * FROM form";
+ $result = mysqli_query($conn, $query);
+ $rowCount = 1;
 
-$fp = fopen('php://output', 'w');
-
-while($row = $result->fetch_assoc()) { 
-    $row = fputcsv($fp, $row, ";"); 
+while($row = mysqli_fetch_array($result)){
+$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $row['id']);
+$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $row['surname']);
+$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount, $row['name']);
+$objPHPExcel->getActiveSheet()->SetCellValue('D'.$rowCount, $row['grp']);
+$rowCount++;
 }
 
-$conn->close(); 
+ header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+ header('Content-Disposition: attachment;filename="exportfile.xlsx"');
+ header('Cache-Control: max-age=0');
+
+ $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+ $objWriter->save('php://output');
 
 ?>
